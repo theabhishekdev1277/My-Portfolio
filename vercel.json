@@ -1,0 +1,12 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main/dist",
+  "installCommand": "npm run install:all",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
