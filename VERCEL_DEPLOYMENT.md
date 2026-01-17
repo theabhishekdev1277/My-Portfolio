@@ -17,9 +17,11 @@ Vercel should auto-detect Vite, but verify these settings:
 
 - **Framework Preset**: Vite (should be auto-detected)
 - **Root Directory**: Leave as `./` (root of repository)
-- **Build Command**: `cd abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main && npm install && npm run build`
-- **Output Directory**: `abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main/dist`
-- **Install Command**: `cd abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main && npm install`
+- **Build Command**: (Already set in `vercel.json` - leave as default or use: `cd abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main && npm install && npm run build`)
+- **Output Directory**: (Already set in `vercel.json` - leave as default or use: `abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main/dist`)
+- **Install Command**: (Already set in `vercel.json` - leave as default)
+
+**Note**: The `vercel.json` file already has the correct configuration. Vercel should automatically use these settings!
 
 ### Step 3: Environment Variables (Optional)
 
