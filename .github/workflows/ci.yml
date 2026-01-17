@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main/package-lock.json
+
+      - name: Install dependencies
+        working-directory: abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main
+        run: npm ci
+
+      - name: Run linter
+        working-directory: abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main
+        run: npm run lint
+
+      - name: Run tests
+        working-directory: abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main
+        run: npm run test
+
+      - name: Build project
+        working-directory: abhishek-singh-premium-web-presence-main/abhishek-singh-premium-web-presence-main
+        run: npm run build
