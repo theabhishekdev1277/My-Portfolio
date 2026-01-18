@@ -20,20 +20,20 @@ const contactInfo = [
   {
     icon: HiEnvelope,
     label: 'Email',
-    value: 'yourmail@gmail.com',
-    href: 'mailto:yourmail@gmail.com',
+    value: 'abhisheksinghiitp@gmail.com',
+    href: 'mailto:abhisheksinghiitp@gmail.com',
   },
   {
     icon: FaInstagram,
     label: 'Instagram',
-    value: '@yourusername',
-    href: 'https://instagram.com/yourusername',
+    value: '@theabhishek1277',
+    href: 'https://instagram.com/theabhishek1277',
   },
   {
     icon: FaLinkedinIn,
     label: 'LinkedIn',
     value: 'Abhishek Singh',
-    href: 'https://linkedin.com/in/yourusername',
+    href: 'https://linkedin.com/in/abhishek0418',
   },
 ];
 

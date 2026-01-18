@@ -3,10 +3,10 @@ import { HiEnvelope } from 'react-icons/hi2';
 import { FaInstagram, FaLinkedinIn, FaGithub } from 'react-icons/fa';
 
 const socialLinks = [
-  { icon: HiEnvelope, href: 'mailto:yourmail@gmail.com', label: 'Email' },
-  { icon: FaInstagram, href: 'https://instagram.com/yourusername', label: 'Instagram' },
-  { icon: FaLinkedinIn, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-  { icon: FaGithub, href: 'https://github.com/yourusername', label: 'GitHub' },
+  { icon: HiEnvelope, href: 'mailto:abhishekinghiitp@gmail.com', label: 'Email' },
+  { icon: FaInstagram, href: 'https://instagram.com/theabhishek1277', label: 'Instagram' },
+  { icon: FaLinkedinIn, href: 'https://linkedin.com/in/abhishek0418', label: 'LinkedIn' },
+  { icon: FaGithub, href: 'https://github.com/theabhishekdev1277', label: 'GitHub' },
 ];
 
 const Footer = () => {

@@ -21,7 +21,7 @@ const Index = () => {
   useEffect(() => {
     // GSAP Scroll Animations
     const sections = document.querySelectorAll('section');
-    
+
     sections.forEach((section) => {
       gsap.fromTo(
         section,
@@ -76,7 +76,7 @@ const Index = () => {
 
         {/* Floating Instagram DM Button */}
         <motion.a
-          href="https://instagram.com/yourusername"
+          href="https://instagram.com/theabhishek1277"
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 flex items-center justify-center shadow-lg hover:shadow-2xl transition-shadow"

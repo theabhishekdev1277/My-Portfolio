@@ -57,6 +57,7 @@ vercel
 ```
 
 Follow the prompts:
+
 - Set up and deploy? **Yes**
 - Which scope? Select your account
 - Link to existing project? **No** (for first deployment)
@@ -88,6 +89,7 @@ After deployment:
 ## Automatic Deployments
 
 Once connected to GitHub, Vercel will automatically:
+
 - Deploy every push to `main` branch
 - Create preview deployments for pull requests
 - Run builds automatically
@@ -103,6 +105,7 @@ Once connected to GitHub, Vercel will automatically:
 ### 404 Errors on Routes
 
 The `vercel.json` includes rewrites to handle React Router. If you still get 404s:
+
 - Check that `rewrites` are in `vercel.json`
 - Ensure all routes are client-side (React Router handles them)
 
@@ -114,6 +117,7 @@ The `vercel.json` includes rewrites to handle React Router. If you still get 404
 ## Your Live Site
 
 After deployment, your portfolio will be available at:
+
 - **Preview**: `https://my-portfolio-git-main-theabhishekdev1277.vercel.app`
 - **Production**: `https://my-portfolio.vercel.app` (or your custom domain)
 

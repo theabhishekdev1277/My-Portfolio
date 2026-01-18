@@ -1,53 +1,85 @@
-import { useRef, useState } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { HiArrowTopRightOnSquare, HiDocumentText, HiXMark, HiArrowRight } from 'react-icons/hi2';
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import {
+  HiArrowTopRightOnSquare,
+  HiDocumentText,
+  HiXMark,
+  HiArrowRight,
+} from "react-icons/hi2";
 
 const projects = [
   {
     id: 1,
-    title: 'Nyaysetu',
-    category: 'Web',
-    description: 'Legal-tech platform that helps people access legal information, connect with services, and simplify legal awareness.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Tailwind'],
-    gradient: 'from-purple-500 to-pink-500',
+    title: "Nyaysetu",
+    category: "Web",
+    description:
+      "Legal-tech platform that helps people access legal information, connect with services, and simplify legal awareness.",
+    tech: ["React", "Node.js", "MongoDB", "Tailwind"],
+    gradient: "from-purple-500 to-pink-500",
   },
   {
     id: 2,
-    title: 'R-Bazaar',
-    category: 'E-Commerce',
-    description: 'E-commerce platform with modern UI, product browsing, cart, checkout and admin-friendly product management.',
-    tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Prisma'],
-    gradient: 'from-cyan-500 to-blue-500',
+    title: "R-Bazaar",
+    category: "E-Commerce",
+    description:
+      "Premium furniture e-commerce platform featuring warm minimalism and boutique craftsmanship. Discover elegant sofas, beds, dining tables, and home decor with seamless shopping experience.",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Stripe",
+      "PostgreSQL",
+      "Prisma",
+      "Tailwind CSS",
+    ],
+    gradient: "from-cyan-500 to-blue-500",
+    url: "https://rbazaar.in",
+    image: "/r-bazaar.png",
   },
   {
     id: 3,
-    title: 'Illustro Webs Website',
-    category: 'Web',
-    description: 'Agency website showcasing services, portfolio, lead capture with conversion-first UI.',
-    tech: ['React', 'Framer Motion', 'Tailwind', 'Figma'],
-    gradient: 'from-green-500 to-emerald-500',
+    title: "Illustro Webs Website",
+    category: "Web",
+    description:
+      "Agency website showcasing services, portfolio, lead capture with conversion-first UI.",
+    tech: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+      "GSAP",
+      "shadcn/ui",
+    ],
+    gradient: "from-green-500 to-emerald-500",
+    url: "https://illustrowebs.in",
+    image: "/iw.png",
   },
   {
     id: 4,
-    title: 'EventFlow',
-    category: 'Systems',
-    description: 'Event management system for colleges & professionals to manage registrations, schedules, speakers, and updates.',
-    tech: ['React', 'Express', 'MySQL', 'Socket.io'],
-    gradient: 'from-orange-500 to-red-500',
+    title: "EventFlow",
+    category: "Systems",
+    description:
+      "Event management system for colleges & professionals to manage registrations, schedules, speakers, and updates.",
+    tech: ["React", "Express", "MySQL", "Socket.io"],
+    gradient: "from-orange-500 to-red-500",
   },
 ];
 
-const filters = ['All', 'Web', 'E-Commerce', 'Systems'];
+const filters = ["All", "Web", "E-Commerce", "Systems"];
 
 const Projects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: '-100px' });
-  const [activeFilter, setActiveFilter] = useState('All');
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[0] | null
+  >(null);
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
-    : projects.filter(p => p.category === activeFilter);
+  const filteredProjects =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeFilter);
 
   return (
     <section id="projects" className="section-spacing relative overflow-hidden">
@@ -69,7 +101,8 @@ const Projects = () => {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my best work across web development, e-commerce, and digital systems
+            A showcase of my best work across web development, e-commerce, and
+            digital systems
           </p>
         </motion.div>
 
@@ -86,8 +119,8 @@ const Projects = () => {
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 ${
                 activeFilter === filter
-                  ? 'bg-gradient-primary text-primary-foreground glow-primary'
-                  : 'glass-card text-muted-foreground hover:text-foreground hover:border-primary/50'
+                  ? "bg-gradient-primary text-primary-foreground glow-primary"
+                  : "glass-card text-muted-foreground hover:text-foreground hover:border-primary/50"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -113,21 +146,34 @@ const Projects = () => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 onClick={() => setSelectedProject(project)}
                 className="project-card cursor-pointer group"
-                whileHover={{ 
-                  scale: 1.02, 
-                  rotateY: 2, 
+                whileHover={{
+                  scale: 1.02,
+                  rotateY: 2,
                   rotateX: -2,
                 }}
               >
-                {/* Project Image Placeholder */}
-                <div className={`h-48 md:h-64 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                    <span className="text-4xl font-heading font-bold text-white/80">{project.title.charAt(0)}</span>
-                  </div>
+                {/* Project Image */}
+                <div
+                  className={`h-48 md:h-64 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}
+                >
+                  {project.image ? (
+                    <>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/20" />
+                    </>
+                  ) : (
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                      <span className="text-4xl font-heading font-bold text-white/80">
+                        {project.title.charAt(0)}
+                      </span>
+                    </div>
+                  )}
                   {/* Hover Overlay */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-60 transition-opacity duration-300 flex items-center justify-center"
-                  >
+                  <motion.div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-60 transition-opacity duration-300 flex items-center justify-center">
                     <span className="text-white font-medium">View Details</span>
                   </motion.div>
                 </div>
@@ -212,10 +258,22 @@ const Projects = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className={`h-48 bg-gradient-to-br ${selectedProject.gradient} relative`}>
+              <div
+                className={`h-48 bg-gradient-to-br ${selectedProject.gradient} relative overflow-hidden`}
+              >
+                {selectedProject.image ? (
+                  <>
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/30" />
+                  </>
+                ) : null}
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-colors z-10"
                 >
                   <HiXMark className="w-6 h-6" />
                 </button>
@@ -250,14 +308,28 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-4">
-                  <motion.button
-                    className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-primary text-primary-foreground font-medium"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <HiArrowTopRightOnSquare className="w-5 h-5" />
-                    Live Demo
-                  </motion.button>
+                  {selectedProject.url ? (
+                    <motion.a
+                      href={selectedProject.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-primary text-primary-foreground font-medium"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <HiArrowTopRightOnSquare className="w-5 h-5" />
+                      Live Demo
+                    </motion.a>
+                  ) : (
+                    <motion.button
+                      className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-primary text-primary-foreground font-medium"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <HiArrowTopRightOnSquare className="w-5 h-5" />
+                      Live Demo
+                    </motion.button>
+                  )}
                   <motion.button
                     className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-full glass-card font-medium"
                     whileHover={{ scale: 1.02 }}
