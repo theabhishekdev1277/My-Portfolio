@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenuAlt3, HiX, HiArrowDownTray } from 'react-icons/hi2';
+import { HiBars3, HiXMark, HiArrowDownTray } from 'react-icons/hi2';
+
 import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
@@ -114,7 +115,7 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.9 }}
             >
-              {isMobileMenuOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+              {isMobileMenuOpen ? <HiXMark size={24} /> : <HiBars3 size={24} />}
             </motion.button>
           </div>
         </div>
