@@ -35,7 +35,7 @@ const Navbar = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
+    link.href = '/My-Resume.pdf';
     link.download = 'Abhishek_Singh_Resume.pdf';
     document.body.appendChild(link);
     link.click();
