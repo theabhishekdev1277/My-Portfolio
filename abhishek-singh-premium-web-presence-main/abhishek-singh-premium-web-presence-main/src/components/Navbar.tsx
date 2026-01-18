@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiArrowDownTray } from 'react-icons/hi2';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -28,6 +29,16 @@ const Navbar = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Abhishek_Singh_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     setIsMobileMenuOpen(false);
   };
 
@@ -80,18 +91,22 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA Button */}
-            <motion.button
-              onClick={() => scrollToSection('#contact')}
-              className="hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-all duration-300 glow-primary"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 40px -10px hsl(var(--primary))' }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              Book Audit
-            </motion.button>
+            {/* Actions */}
+            <div className="hidden md:flex items-center gap-4">
+              <ThemeToggle />
+              <motion.button
+                onClick={handleDownloadResume}
+                className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-all duration-300 glow-primary"
+                whileHover={{ scale: 1.05, boxShadow: '0 0 40px -10px hsl(var(--primary))' }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <HiArrowDownTray className="w-4 h-4" />
+                Download Resume
+              </motion.button>
+            </div>
 
             {/* Mobile Menu Button */}
             <motion.button
@@ -133,15 +148,26 @@ const Navbar = () => {
                     {link.name}
                   </motion.a>
                 ))}
-                <motion.button
-                  onClick={() => scrollToSection('#contact')}
-                  className="mt-4 px-8 py-4 rounded-full bg-gradient-primary text-primary-foreground font-medium text-lg"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                >
-                  Book Audit
-                </motion.button>
+                <div className="mt-4 flex flex-col gap-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="flex justify-center"
+                  >
+                    <ThemeToggle />
+                  </motion.div>
+                  <motion.button
+                    onClick={handleDownloadResume}
+                    className="px-8 py-4 rounded-full bg-gradient-primary text-primary-foreground font-medium text-lg flex items-center justify-center gap-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                  >
+                    <HiArrowDownTray className="w-5 h-5" />
+                    Download Resume
+                  </motion.button>
+                </div>
               </div>
             </div>
           </motion.div>

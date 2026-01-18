@@ -51,10 +51,17 @@ const Contact = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    toast.success("Thanks! I'll respond within 24 hours.", {
-      description: 'Your message has been sent successfully.',
+    // Format message for WhatsApp
+    const whatsappMessage = `Hi Abhishek!%0A%0AName: ${encodeURIComponent(data.name)}%0AEmail: ${encodeURIComponent(data.email)}%0ASubject: ${encodeURIComponent(data.subject)}%0A%0AMessage:%0A${encodeURIComponent(data.message)}`;
+
+    // Open WhatsApp with pre-filled message
+    const whatsappUrl = `https://wa.me/919284303161?text=${whatsappMessage}`;
+
+    // Open in new tab/window
+    window.open(whatsappUrl, '_blank');
+
+    toast.success("Opening WhatsApp...", {
+      description: 'Your message is ready to send.',
     });
     reset();
   };

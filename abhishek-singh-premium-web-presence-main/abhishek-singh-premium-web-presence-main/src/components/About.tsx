@@ -138,9 +138,21 @@ const About = () => {
                 I build modern websites and systems that increase sales and
                 automate operations.
               </p>
-              <p className="text-foreground font-medium">
+              <p className="text-foreground font-medium mb-4">
                 CEO & Co-Founder at Illustro Webs.
               </p>
+              {/* Achievement Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.7 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30"
+              >
+                <span className="text-lg">🏆</span>
+                <span className="text-sm font-medium text-foreground">
+                  Techfest IIT Bombay 2025 Finalist
+                </span>
+              </motion.div>
             </motion.div>
 
             {/* Highlight Cards */}
